@@ -1,9 +1,12 @@
 
 {% extends 'creaturesApp/base.html'%}
 {% block body %}
-    <div class="container m-3">
+    <div data-aos="fade-up" data-aos-delay="100" class="container m-3">
         <h1>Hello World From {{ title }}</h1>
-        <p>Welcome to the World</p>
+        <div data-aos="fade-up" data-aos-delay="400">
+            <p>Welcome to the World</p>
+        </div>
+
         <br><br><br><br>
     </div>
 {% endblock %}
