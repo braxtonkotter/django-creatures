@@ -1,0 +1,86 @@
+{% load static %}
+
+body{
+    background-color: rgba(159, 136, 0, 0.32);
+}
+
+/* Header with Background Image and Gradient */
+.gradient-header {
+    height: 50vh;
+    display: flex;
+    flex-direction: column; /* Make the layout vertical */
+    justify-content: flex-end; /* Align text to the bottom */
+    align-items: center;
+    position: relative;
+    color: white;
+    vertical-align: text-bottom;
+    background: linear-gradient(
+            to bottom,
+            rgb(87, 72, 0, 0.8) 0%,
+            rgb(87, 72, 0, 0.4) 50%,
+            rgba(43, 34, 0, 0.8) 100%
+        ),
+        url('../1024.webp') center/cover no-repeat;
+    font-family: "Cinzel", serif;
+    padding-bottom: 20px; /* Optional: Adds space between text and the bottom */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Add drop shadow */
+
+}
+
+.header-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.header-subtitle {
+    font-size: 1.2rem;
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.nav-link {
+    color: white;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffd700;
+    text-shadow: 0px 0px 8px #ffd700;
+}
+
+.nav-link:focus {
+    color: #ffd700;
+    text-shadow: 0px 0px 8px #ffd700;
+}
+
+.dropdown-item:hover{
+    background-color: rgba(197, 160, 0, 0.8);
+}
+
+
+/* Footer with Background Image and Gradient */
+.gradient-footer {
+    background: rgb(87, 72, 0);
+    color: white;
+    font-family: "Cinzel", serif;
+    padding: 20px 0;
+    box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.5); /* Add shadow to the top */
+
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+
