@@ -4,6 +4,11 @@ body{
     background-color: rgba(159, 136, 0, 0.32);
 }
 
+.custom-table tr{
+    color: black;
+}
+
+
 /* Header with Background Image and Gradient */
 .gradient-header {
     height: 50vh;
@@ -83,4 +88,38 @@ body{
     color: #bbb;
 }
 
+.test{
+    height: 30vh;
+    box-shadow: 3px 3px 3px gray;
+}
+
+.btn{
+    background-color: #756400;
+    color: white; !important;
+}
+.btn:hover{
+    background-color: rgba(197, 160, 0, 0.8);
+    shadow: 0px 0px 8px #ffd700;
+    color: white;
+}
+a i {
+    color: white;
+    padding-top: 3px;
+}
+a i:hover {
+    color: #ffd700;
+    text-shadow: 0px 0px 8px #ffd700;
+}
+
+h1{
+    font-family: "Cormorant Garamond", serif;
+}
+
+h2{
+    font-family: "Cormorant Garamond", serif;
+}
+
+.btn:checked{
+    background-color: black;
+}
 

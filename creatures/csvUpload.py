@@ -11,7 +11,7 @@ from creaturesApp.models import creature
 import csv
 
 # Open and read the CSV file
-with open('Mythological Creatures.csv', newline='\n') as csvfile:
+with open('./Mythological Creatures.csv', newline='\n') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
 
     for row in spamreader:

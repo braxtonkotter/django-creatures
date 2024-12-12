@@ -1,0 +1,42 @@
+
+{% extends 'creaturesApp/base.html'%}
+{% block body %}
+    <div class="container m-3 mt-5">
+        <h1>{{ ruling }} Message</h1>
+        <br>
+        <!-- get message from admin form: show the info for the item to review -->
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Mythology</th>
+                        <th scope="col">Region</th>
+                        <th scope="col">Link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        <tr>
+                            <th scope="row">{{ ticket.id }}</th>
+                            <td>{{ ticket.name }}</td>
+                            <td>{{ ticket.description }}</td>
+                            <td>{{ ticket.mythology }}</td>
+                            <td>{{ ticket.region }}</td>
+                            <td>{{ ticket.ref_link }}</td>
+                        </tr>
+                  </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <label for="message"><strong>Message</strong></label>
+                <input type="text" class="form-control w-50" name="message" id="message">
+                <br>
+                <button class="btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -3,8 +3,67 @@
 {% extends 'creaturesApp/base.html'%}
 {% block body %}
     <div class="container m-3">
-        <h1>Hello World From {{ title }}</h1>
-        <p>Welcome to the World</p>
+        <h1>Welcome {{ user.username }}</h1>
+        <section>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="card mb-4 h-100">
+                  <div class="card-body text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                      class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">{{ user.username }}</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <p class="mb-0">Email</p>
+                      </div>
+                      <div class="col-sm-9">
+                        <p class="text-muted mb-0">{{ user.email }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="card mb-4 mb-md-0">
+                      <div class="card-body">
+                        <h4 class="mb-6">Tickets</h4>
+                          <hr>
+                          {% for x in tickets %}
+                              <div class="row">
+                                  <div class="col-6">
+                                      <p class="mb-1" style="font-size: .77rem;"><strong>{{ x.name }}</strong></p>
+                                      <p class="mb-1" style="font-size: .77rem;">Status: {{ x.status.upper }}</p>
+                                      <p class="mb-1" style="font-size: .77rem;">Admin Message: {% if x.message == '' %} No Messages {% else %} {{ x.message }} {% endif %}</p>
+                                  </div>
+                                <div class="col-3">
+                                    <a class="btn" href="{% url 'edit' x.id %}">Edit</a>
+                                </div>
+                                <div class="col-3">
+                                    <a class="btn" href="{% url 'delete' x.id %}">Delete</a>
+                                </div>
+                                  <br>
+                                  <hr>
+                              </div>
+                          {% empty %}
+                            <p>No Tickets Created</p>
+                          {% endfor %}
+                          <br>
+                          <a class="btn" href="{% url 'create' %}">Create New Ticket</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <br><br><br><br>
     </div>
 {% endblock %}

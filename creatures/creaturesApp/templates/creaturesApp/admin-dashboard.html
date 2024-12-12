@@ -1,9 +1,67 @@
 
 {% extends 'creaturesApp/base.html'%}
 {% block body %}
-    <div class="container m-3">
-        <h1>Hello World From {{ title }}</h1>
-        <p>Welcome to the World</p>
+    <div class="container m-3 mt-5 w-100">
+        <h1><strong>{{ title }}</strong></h1>
+        <!-- Ticket Management -->
+        <div class="container" style="border-color: rgba(155,137,41,0.68)">
+            <h2>Open Tickets</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Mythology</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Link</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for x in open_tickets %}
+                    <tr>
+                        <th scope="row">{{ x.id }}</th>
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.description }}</td>
+                        <td>{{ x.mythology }}</td>
+                        <td>{{ x.region }}</td>
+                        <td>{{ x.ref_link }}</td>
+                        <td><a class="btn" href="{% url 'message' x.id 0%}">Accept</a></td> <!-- Set status = ACCEPTED, Add to Database, Refresh page -->
+                        <td><a class="btn" href="{% url 'message' x.id 1 %}">Reject</a></td> <!-- Set status = REJECTED, send to reject page -->
+                    </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+        </div>
+        <div class="container" style="border-color: rgba(155,137,41,0.68)">
+                <h2>Closed Tickets</h2>
+                <table class="table">
+                  <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Mythology</th>
+                        <th scope="col">Region</th>
+                        <th scope="col">Link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for x in closed_tickets %}
+                        <tr>
+                            <th scope="row">{{ x.id }}</th>
+                            <td>{{ x.name }}</td>
+                            <td>{{ x.description }}</td>
+                            <td>{{ x.mythology }}</td>
+                            <td>{{ x.region }}</td>
+                            <td>{{ x.ref_link }}</td>
+                        </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+            </div>
         <br><br><br><br>
     </div>
 {% endblock %}

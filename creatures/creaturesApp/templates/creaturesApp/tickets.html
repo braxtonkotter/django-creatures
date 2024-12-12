@@ -1,9 +1,50 @@
 
 {% extends 'creaturesApp/base.html'%}
 {% block body %}
-    <div class="container m-3">
-        <h1>Hello World From {{ title }}</h1>
-        <p>Welcome to the World</p>
-        <br><br><br><br>
+    <div class="container m-3 mt-5 p-3" style="background-color: rgba(155,137,41,0.68); border-radius: 1rem">
+        <h1>{{ title }}</h1>
+        <!-- form to edit properties -->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-6">
+                    <label for="name"><strong>Creature Name</strong></label>
+                    <input class="form-control" type="text" name="name" id="name" value="{{ ticket.name }}" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <label for="description"><strong>Creature Description</strong></label>
+                    <textarea class="form-control" name="description" id="description">{{ ticket.description }}</textarea>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <label for="myth"><strong>Creature Mythology</strong></label>
+                    <input class="form-control" type="text" name="myth" id="myth" value="{{ ticket.mythology }}" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <label for="region"><strong>Creature Region</strong></label>
+                    <select class="form-select" name="region" id="region" aria-label="Default select example">
+                        <option {% if ticket.region == '' %}selected{% endif %}>Open this select menu</option>
+                        <option value="Asia Pacific" {% if ticket.region == 'Asia Pacific' %}selected{% endif %}>Asia Pacific</option>
+                        <option value="North America" {% if ticket.region == 'North America' %}selected{% endif %}>North America</option>
+                        <option value="South America" {% if ticket.region == 'South America' %}selected{% endif %}>South America</option>
+                        <option value="Middle East" {% if ticket.region == 'Middle East' %}selected{% endif %}>Middle East</option>
+                        <option value="Europe" {% if ticket.region == 'Europe' %}selected{% endif %}>Europe</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <label for="ref_link"><strong>Creature Reference Link</strong></label>
+                    <input class="form-control" type="text" name="ref_link" id="ref_link" value="{{ ticket.ref_link }}" required>
+                </div>
+            </div>
+            <br>
+            <button class="btn" type="submit">Submit</button>
+        </form>
     </div>
 {% endblock %}

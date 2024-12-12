@@ -1,12 +1,34 @@
+{% extends 'creaturesApp/base.html' %}
 
-{% extends 'creaturesApp/base.html'%}
 {% block body %}
-    <div data-aos="fade-up" data-aos-delay="100" class="container m-3">
-        <h1>Hello World From {{ title }}</h1>
-        <div data-aos="fade-up" data-aos-delay="400">
-            <p>Welcome to the World</p>
+    <div class="container m-3 mt-5">
+        <!-- Welcome Area -->
+        <div class="container mb-5 p-3" style="background-color: rgba(155,137,41,0.32); color: black;">
+            <h1>Welcome User</h1>
+            <p>The Myth and Folklore Wiki is dedicated to exploring, preserving, and sharing the rich tapestry of mythological and folkloric traditions from around the world. Our mission is to provide a reliable, user-friendly, and scholarly resource for enthusiasts, researchers, and casual readers alike. We aim to achieve this by offering well-researched, accessible articles that delve into the fascinating stories, characters, and cultures of mythology and folklore. Join us in building a collaborative platform where knowledge grows and legends live on—contribute to existing entries or create new ones!</p>
+
         </div>
 
-        <br><br><br><br>
+        <!-- Title -->
+        <h1 data-aos="fade-up" data-aos-delay="25">All Mythological Creatures</h1>
+
+        <!-- Cards -->
+        <div class="row w-100">
+            {% for creature in creatures %}
+                <div class="col-md-2 mb-4 col-xs-8" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                    <div class="card test h-100" style="background-color: rgba(155,137,41,0.32)">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ creature.name }}</h5>
+                            <p class="card-title">{{ creature.mythology }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'details' creature.id %}" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No creatures available.</p>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

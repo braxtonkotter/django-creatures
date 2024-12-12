@@ -1,9 +1,24 @@
 
 {% extends 'creaturesApp/base.html'%}
 {% block body %}
-    <div class="container m-3">
-        <h1>Hello World From {{ title }}</h1>
-        <p>Welcome to Myth Wiki</p>
-        <br><br><br><br>
+    <div class="container m-3 mt-5">
+        <div class="container mb-5 p-3" style="background-color: rgba(155,137,41,0.32); color: black;">
+            <p>The Myth and Folklore Wiki is dedicated to exploring, preserving, and sharing the rich tapestry of mythological and folkloric traditions from around the world. Our mission is to provide a reliable, user-friendly, and scholarly resource for enthusiasts, researchers, and casual readers alike. We aim to achieve this by offering well-researched, accessible articles that delve into the fascinating stories, characters, and cultures of mythology and folklore. Join us in building a collaborative platform where knowledge grows and legends live on—contribute to existing entries or create new ones!</p>
+        </div>
+        <div class="row">
+            <div class="col m-3">
+                <div class="card" style="align-items: center;  background-color: transparent; border-color: transparent"><h1><i class="bi bi-telephone" style="transform: scale(2);"></i></h1>
+                <h5>(888) 555 - 6666</h5></div>
+            </div>
+            <div class="col m-3">
+                <div class="card" style="align-items: center;  background-color: transparent; border-color: transparent"><h1><i class="bi bi-envelope" style="transform: scale(2);"></i></h1>
+                <h5>mythology_wiki@gmail.com</h5></div>
+            </div>
+            <div class="col m-3">
+                <div class="card" style="align-items: center;  background-color: transparent; border-color: transparent"><h1><i class="bi bi-instagram" style="transform: scale(2);"></i></h1>
+                <h5>@mythology_wiki</h5></div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}

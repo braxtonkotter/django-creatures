@@ -1,0 +1,53 @@
+
+{% extends 'creaturesApp/base.html'%}
+{% block body %}
+    <div class="container m-3" >
+        <form class="p-3 w-75" method="post" style="background-color: rgba(159,136,0,0.32); border-radius: 1rem;">
+            {% csrf_token %}
+            <h1>Search</h1>
+            <div class="row mb-3">
+                <div class="col">
+                    <h5 style="margin-left: .5rem"><label for="search">Name</label></h5>
+                    <input type="text" placeholder="Search" name="name" id="name" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <h5 style="margin-left: .5rem"><label for="search">Region</label></h5>
+                    <div class="col-md-2 m-2">
+                        <input type="checkbox" class="form-check-input" id="btncheck1" name="africa_check">
+                        <label class="form-check-label" for="btncheck1">Africa</label>
+                    </div>
+                    <div class="col-md-3 m-2">
+                        <input type="checkbox" class="form-check-input" id="btncheck1" name="asia_check">
+                        <label class="form-check-label" for="btncheck1">Asia Pacific</label>
+                    </div>
+                    <div class="col-md-2 m-2">
+                        <input type="checkbox" class="form-check-input" id="btncheck1" name="europe_check">
+                        <label class="form-check-label" for="btncheck1">Europe</label>
+                    </div>
+                    <div class="col-md-3 m-2">
+                        <input type="checkbox" class="form-check-input" id="btncheck1" name="middle_east_check">
+                        <label class="form-check-label" for="btncheck1">Middle East</label>
+                    </div>
+                    <div class="col-md-3 m-2">
+                        <input type="checkbox" class="form-check-input" id="btncheck1" name="north_america_check">
+                        <label class="form-check-label" for="btncheck1">North America</label>
+                    </div>
+                    <div class="col-md-3 m-2">
+                        <input type="checkbox" class="form-check-input" id="btncheck1" name="south_america_check">
+                        <label class="form-check-label" for="btncheck1">South America</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <h5 style="margin-left: .5rem"><label for="search">Mythology</label></h5>
+                    <input type="text" placeholder="Search" name="mythology" id="mythology" class="form-control">
+                </div>
+            </div>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+        <br><br><br><br>
+    </div>
+{% endblock %}

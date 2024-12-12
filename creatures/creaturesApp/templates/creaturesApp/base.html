@@ -18,6 +18,9 @@
     <!-- Scroll Fun Documentation: https://github.com/michalsnik/aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
 </head>
 <body>
@@ -32,23 +35,44 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
+                        Regions
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                        <li><a class="dropdown-item" href="#">Greek Mythology</a></li>
-                        <li><a class="dropdown-item" href="#">Norse Mythology</a></li>
-                        <li><a class="dropdown-item" href="#">Egyptian Mythology</a></li>
-                        <li><a class="dropdown-item" href="#">Indian Mythology</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 0 %}">Africa</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 1 %}">South America</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 2 %}">North America</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 3 %}">Middle East</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 4 %}">Europe</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 5 %}">Asia Pacific</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Popular</a>
+                    <a class="nav-link" href="{% url 'popular' %}">Popular</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'sign-in' %}">Sign In</a>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account' %}">Account</a>
+                    </li>
+                    {% if user.is_superuser %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin-dashboard' %}">Admin Dashboard</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="nav-link" type="submit">Logout</button></form>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+                    </li>
+                {% endif %}
+
+
+                <li class="nav-item mt-2">
+                    <a href="{% url 'search' %}"><i class="bi bi-search" style="margin-top: 15px"></i></a>
                 </li>
             </ul>
 
@@ -68,16 +92,18 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
+                        Regions
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                        <li><a class="dropdown-item" href="#">Greek Mythology</a></li>
-                        <li><a class="dropdown-item" href="#">Norse Mythology</a></li>
-                        <li><a class="dropdown-item" href="#">Egyptian Mythology</a></li>
-                        <li><a class="dropdown-item" href="#">Indian Mythology</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 0 %}">Africa</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 1 %}">South America</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 2 %}">North America</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 3 %}">Middle East</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 4 %}">Europe</a></li>
+                        <li><a class="dropdown-item" href="{% url 'results' 5 %}">Asia Pacific</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'popular' %}">Popular</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
             </ul>
             <div class="footer-bottom py-3">

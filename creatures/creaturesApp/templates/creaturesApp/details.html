@@ -1,9 +1,15 @@
 
 {% extends 'creaturesApp/base.html'%}
 {% block body %}
-    <div class="container m-3">
-        <h1>Hello World From {{ title }}</h1>
-        <p>Welcome to the World</p>
-        <br><br><br><br>
+    <div class="container m-3 mt-5 p-3 w-50" style="background-color: rgba(155,137,41,0.68); border-radius: 1rem">
+        <h1><strong>{{ creatures.name }}</strong></h1>
+        <h2>Description</h2>
+        <h6 style="margin-left: 30px">{{ creatures.description }}</h6>
+        <h2>Mythology</h2>
+        <h6 style="margin-left: 30px">{{ creatures.mythology }}</h6>
+        <h2>Region</h2>
+        <h6 style="margin-left: 30px">{{ creatures.region }}</h6>
+        <br>
+        <a target="_blank" class="btn" href={{ creatures.ref_link }}"">Reference Link</a>
     </div>
 {% endblock %}

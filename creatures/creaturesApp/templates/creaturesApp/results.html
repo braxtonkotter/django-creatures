@@ -2,8 +2,23 @@
 {% extends 'creaturesApp/base.html'%}
 {% block body %}
     <div class="container m-3">
-        <h1>Hello World From {{ title }}</h1>
-        <p>Welcome to the World</p>
-        <br><br><br><br>
+        <h1>{{ title }}</h1>
+        <div class="row">
+            {% for creature in results %}
+                <div class="col-md-2 mb-4 col-sm-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:100 }}">
+                    <div class="card h-100" style="background-color: rgba(155,137,41,0.32)">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ creature.name }}</h5>
+                            <p class="card-title">{{ creature.mythology }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{% url 'details' creature.id %}" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No creatures available.</p>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
